@@ -1,0 +1,57 @@
+﻿@model Celulares.Models.Seguridad.Usuario
+
+@*@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.js")
+    @Scripts.Render("~/Scripts/jquery.validate.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.js")
+    @Scripts.Render("~/bundles/jquery")
+
+
+}*@
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+}
+<div id="UserLogIn">
+    <div class="well">
+        <h4>Inicio Session</h4>
+        @using (Ajax.BeginForm("LogIn", "Home",
+            new AjaxOptions { UpdateTargetId = "UserLogIn", InsertionMode = InsertionMode.Replace, HttpMethod = "GET" }))
+        {            
+            <div class="input-group">
+                @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control", placeholder = "Usuario" })
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </button>
+                </span>
+            </div>
+            <div class="input-group">
+                @Html.TextBoxFor(x => x.Contrasena, new { @class = "form-control", type = "password", placeholder = "Contraseña" })
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-lock"></span>
+                    </button>
+                </span>
+            </div>
+            <div class="btn-group">
+                <input type="submit" value="Ingresar" class="btn btn-primary pull-right" />
+            </div>
+
+            @Html.ValidationMessageFor(x => x.Nombre)
+        }
+    </div>
+    <div class="well">
+        <h4>Datos Personales</h4>
+        <div class="input-group">
+            <input type="text" class="form-control">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+
+
+</div>
+

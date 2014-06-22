@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Mi aplicación ASP.NET MVC</title>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/kendo/20141318")
+    @Scripts.Render("~/bundles/kendo")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/bootstrap-theme")
+    @RenderSection("scripts", required: false)
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php">Start Bootstrap</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul id="menu" class="nav navbar-nav">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a>
+                        @*<ul>
+                                    <li>Bed Linen</li>
+                                    <li>Bed Linen</li>
+                                    <li>Bed Linen</li>
+                                    <li>Bed Linen</li>
+                                </ul>*@
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="row">
+            @RenderBody()
+        </div>
+    </div>
+
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET MVC</p>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+
+
+    @*        @section Scripts
+        {
+            $(document).ready(function () {
+                $("#menu").kendoMenu();
+                console.log($("#menu"));
+            });
+        }*@
+    <script type="text/javascript" >
+        $(document).ready(function () {
+            $("#menu").kendoMenu();
+            //console.log($("#menu"));
+        });
+    </script>
+</body>
+</html>
+
+    
+     

@@ -1,0 +1,32 @@
+﻿<div>
+    <ul id="menu">
+        <li>Seguridad
+            <ul>
+                <li>@Html.ActionLink("Usuarios", "Index", "User"   )</li>
+                <li>@Html.ActionLink("Roles", "Index","Rol" )</li>
+            </ul>
+        </li>
+        <li>Maestros
+            <ul>
+                <li>@Html.ActionLink("G.E.", "Index", "GrupoEconomico"   )</li>
+                <li>@Html.ActionLink("TipoCarteras", "Index", "TipoCartera"   )</li>
+                <li>@Html.ActionLink("TipoRed", "Index", "TipoRed"   )</li>
+            </ul>
+        </li>
+        <li>@Html.ActionLink("Brokers", "Index","Brocker")</li>
+        <li>@Html.ActionLink("Planes", "Index","PlanesCreados")</li>
+        <li>@Html.ActionLink("Clientes", "Index","Clientes")</li>
+        <li>Proveedores
+            <ul>
+                <li>@Html.ActionLink("Proveedor", "Index", "Proveedores"   )</li>
+                <li>@Html.ActionLink("Sucursal", "Index", "Sucursal"   )</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+        <script>
+            $(function () {
+                console.log($("#menu"));
+                $("#menu").kendoMenu();
+            });
+        </script>

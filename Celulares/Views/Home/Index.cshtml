@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="col-lg-4">
+    @{Html.RenderPartial("_UsuarioInfo");}
+    @Html.Partial("_ResumenCuenta")
+    @Html.Partial("_ResumenEstadistica")
+</div>
+<div class="col-lg-8">
+    <div class="row">
+        <h2>Registro</h2>
+        <hr>
+
+        <!-- the comment box -->
+        <div class="well">
+            <form role="form">
+                <div class="form-group">
+                    <h4>Numero Telefónico</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-earphone"></span>
+                            </button>
+                        </span>
+                    </div>
+                    <h4>Comentario</h4>
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </form>
+        </div>
+        <hr />
+        @{
+            for (int i = 1; i <= 5; i++)
+            {
+            <div class="well">
+                <h3>Acoso
+                    <small>@DateTime.Now</small>
+                    <small><a href="#" >usuario @i</a></small>
+                </h3>
+                <p>Este Numero me ha molestado y no contestan, solo cuelgan</p>
+            </div>
+            }
+        }
+
+
+    </div>
+</div>
+
+
+
+
