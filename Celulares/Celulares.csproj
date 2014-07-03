@@ -46,10 +46,15 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="MathNet.Numerics, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MathNet.Numerics.3.0.2\lib\net40\MathNet.Numerics.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -178,12 +183,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\DataBaseConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Registro\Controllers\RegistroController.cs" />
     <Compile Include="Areas\Registro\Models\Demandado.cs" />
     <Compile Include="Areas\Registro\Models\Demandante.cs" />
     <Compile Include="Areas\Registro\Models\Denuncia.cs" />
     <Compile Include="Areas\Registro\Models\HttpMethod.cs" />
     <Compile Include="Areas\Registro\Models\HttpRequest.cs" />
     <Compile Include="Areas\Registro\Models\HttpVersion.cs" />
+    <Compile Include="Areas\Registro\Models\Motivo.cs" />
+    <Compile Include="Areas\Registro\Models\TempRegistrarDenuncia.cs" />
     <Compile Include="Areas\Registro\RegistroAreaRegistration.cs" />
     <Compile Include="Areas\Seguridad\SeguridadAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -488,6 +496,8 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Areas\Seguridad\Views\Web.config" />
+    <Content Include="Areas\Registro\Views\Registro\Index.cshtml" />
+    <Content Include="Areas\Registro\Views\Registro\_ResumenDemandas.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1090,13 +1100,12 @@
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Shared\_LogIn.cshtml" />
     <Content Include="Views\Home\_LogIn.cshtml" />
-    <Content Include="Views\Home\_ResumenCuenta.cshtml" />
-    <Content Include="Views\Home\_ResumenEstadistica.cshtml" />
-    <Content Include="Views\Home\_UsuarioInfo.cshtml" />
+    <Content Include="Areas\Registro\Views\Registro\_ResumenCuenta.cshtml" />
+    <Content Include="Areas\Registro\Views\Registro\_ResumenEstadistica.cshtml" />
+    <Content Include="Areas\Registro\Views\Registro\_UsuarioInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Registro\Controllers\" />
     <Folder Include="Areas\Registro\Views\Shared\" />
     <Folder Include="Areas\Seguridad\Controllers\" />
     <Folder Include="Areas\Seguridad\Models\" />

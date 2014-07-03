@@ -14,7 +14,7 @@ namespace Celulares.Controllers
 
         public ActionResult Index()
         {
-            return View(new Usuario());
+            return RedirectToAction("Index", new { Area = "Registro", Controller = "Registro" });
         }
 
         public PartialViewResult UsuarioInfo(Usuario model, string returnUrl)

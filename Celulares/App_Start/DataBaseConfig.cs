@@ -28,10 +28,47 @@ namespace Celulares
         public DbSet<Denuncia> Denuncia { get; set; }
         public BDGeneric<Denuncia> T_Denuncia { get; set; }
 
+        public DbSet<Motivo> Motivo { get; set; }
+        public BDGeneric<Motivo> T_Motivo { get; set; }
+
+
         public void Seed()
         {
-            Rol tablaRoles = (new Rol {Nombre="Invitado", Estado=true, Eliminado=false, FechaCreacion=DateTime.Now, FechaModificacion=DateTime.Now});
+            Rol tablaRoles = (new Rol
+            {
+                Nombre = "Invitado",
+                Estado = true,
+                Eliminado = false,
+                FechaCreacion = DateTime.Now,
+                FechaModificacion = DateTime.Now
+            });
             T_Rol.Add(tablaRoles);
+
+            List<Motivo> tablamotivos = new List<Motivo>();
+            T_Motivo.Add((new Motivo
+            {
+                Descripcion = "Molestia",
+                Estado = true,
+                Eliminado = false,
+                FechaCreacion = DateTime.Now,
+                FechaModificacion = DateTime.Now
+            }));
+            T_Motivo.Add((new Motivo
+            {
+                Descripcion = "Acoso",
+                Estado = true,
+                Eliminado = false,
+                FechaCreacion = DateTime.Now,
+                FechaModificacion = DateTime.Now
+            }));
+            T_Motivo.Add((new Motivo
+            {
+                Descripcion = "Extorcionador",
+                Estado = true,
+                Eliminado = false,
+                FechaCreacion = DateTime.Now,
+                FechaModificacion = DateTime.Now
+            }));
         }
 
         private void RegistrarTablas()
@@ -41,6 +78,18 @@ namespace Celulares
             T_Demandado = new BDGeneric<Demandado>(this, Demandado);
             T_Demandante = new BDGeneric<Demandante>(this, Demandante);
             T_Denuncia = new BDGeneric<Denuncia>(this, Denuncia);
+            T_Motivo = new BDGeneric<Motivo>(this, Motivo);
+        }
+
+        private class MotivoConfiguration : EntityTypeConfiguration<Motivo>
+        {
+            public MotivoConfiguration()
+            {
+                Property(p => p.Id).IsRequired();
+                Property(p => p.FechaCreacion).IsRequired().HasColumnType("datetime2");
+                Property(p => p.FechaModificacion).IsRequired().HasColumnType("datetime2");
+                ToTable(Celulares.Areas.Registro.Models.Motivo.TABLENAME);
+            }
         }
 
         private class UsuarioConfiguration : EntityTypeConfiguration<Usuario>
@@ -106,6 +155,7 @@ namespace Celulares
             modelBuilder.Configurations.Add(new DenunciaConfiguration());
             modelBuilder.Configurations.Add(new DemandadoConfiguration());
             modelBuilder.Configurations.Add(new DemandanteConfiguration());
+            modelBuilder.Configurations.Add(new MotivoConfiguration());
             base.OnModelCreating(modelBuilder);
         }
 

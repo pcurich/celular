@@ -6,16 +6,12 @@ using System.Web;
 
 namespace Celulares.Areas.Registro.Models
 {
-    public class Demandado : DBable
+    public class Motivo : DBable
     {
-        public static String TABLENAME = "Demandado";
-
-        public String Telefono { get; set; }
+        public static String TABLENAME = "Motivo";
 
         public List<Denuncia> Denuncias { get; set; }
 
-        public List<Demandante> Demandantes { get; set; }
-
+        public String Descripcion { get; set; }
     }
-
 }

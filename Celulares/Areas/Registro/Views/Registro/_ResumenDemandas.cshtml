@@ -1,0 +1,19 @@
+﻿@model Celulares.Areas.Registro.Models.TempRegistrarDenuncia
+@using Celulares.Areas.Registro.Models
+
+@{
+    if (Model != null)
+    {
+        foreach (Denuncia denuncia in Model.Denuncias)
+        {
+            <div class="well">
+                <h3>@denuncia.Titulo
+                    <small>@denuncia.FechaCreacion</small>
+                    <small><a href="#">usuario no habido</a></small>
+                </h3>
+                <pre>@denuncia.Motivo.Descripcion</pre>
+                <p>@denuncia.Mensaje</p>
+            </div>
+        }
+    }
+}

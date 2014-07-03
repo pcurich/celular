@@ -12,9 +12,9 @@ namespace Celulares.Areas.Registro.Models
     {
         public static String TABLENAME = "Demandante";
 
-        public Demandado demandado { get; set; }
-        public int demandadoId { get; set; }
-        public Usuario  usuario { set;get; }
-        public String request { get; set; }
+        public Demandado Demandado { get; set; }
+        public int DemandadoId { get; set; }
+        public Usuario  Usuario { set;get; }
+        public String Request { get; set; }
     }
 }
