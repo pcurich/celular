@@ -36,7 +36,7 @@ namespace Celulares
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
-            Database.SetInitializer<DBContext>(new Celulares.DBContext.InitializerDropAlways());
+            //Database.SetInitializer<DBContext>(new Celulares.DBContext.InitializerDropAlways());
         }
     }
 }
