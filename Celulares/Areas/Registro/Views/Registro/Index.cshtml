@@ -1,0 +1,102 @@
+﻿@model Celulares.Areas.Registro.Models.TempRegistrarDenuncia
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
+}
+
+<div class="col-lg-4">
+    @{Html.RenderPartial("_UsuarioInfo");}
+    @Html.Partial("_ResumenCuenta")
+    @Html.Partial("_ResumenEstadistica")
+</div>
+<div class="col-lg-8">
+    <div class="row">
+        <h2>Registro</h2>
+        <hr>
+        <div id="resultado"></div>
+        <!-- the comment box -->
+        <div class="well">
+            @using (Ajax.BeginForm("FindNumber",
+                null,
+                new AjaxOptions() { UpdateTargetId = "NumberFinder", HttpMethod = "Post" }, new { @class = "form" }))
+            {
+                @Html.AntiForgeryToken();
+                @Html.ValidationSummary(true) 
+                <div class="form-group">
+                    <h4>Buscar Numero Telefónico</h4>
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control" })
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            }
+        </div>
+        <hr />
+        <div class="well">
+            @using (Ajax.BeginForm("Registrar",
+                null,
+                new AjaxOptions() { UpdateTargetId = "resultado", HttpMethod = "Post" }, new { @class = "form-horizontal" }))
+            {
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Titulo</label>
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(model => model.Titulo, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Motivo</label>
+                    <div class="col-sm-10">
+                        @Html.DropDownListFor(model => model.MotivoId, new SelectList(ViewBag.Motivos, "Id", "Descripcion"), new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Comentario</label>
+                    <div class="col-sm-10">
+                        @Html.TextAreaFor(model => model.Mensaje, new { row = "3", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                    </div>
+                </div>
+            }
+        </div>
+        <div id="Denuncias">
+            <!-- something like this in your ASP.NET View -->
+            @{Html.RenderPartial("_ResumenDemandas", Model); }
+        </div>
+        <div id="NumberFinder">
+        </div>
+
+    </div>
+
+
+
+
+</div>
+<script type="text/javascript">
+    // assuming you're using jQuery
+    $("#numberphone").change(function (event) {
+        alert("sdsz");
+        $.ajax({
+            url: "Registro/FindNumber/" + $(this).val(),
+            data: { telefono: $(this).val() },
+            cache: false,
+            type: "POST",
+            dataType: "html",
+            success: function (data, textStatus, XMLHttpRequest) {
+                $("#Denuncias").html(data); // HTML DOM replace
+            }
+        });
+    });
+</script>
+
+
+
+
+
